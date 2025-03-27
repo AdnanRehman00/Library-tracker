@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <!-- Properties of the JFrame (main window) -->
   <Properties>
+    <!-- Set the default close operation to EXIT_ON_CLOSE (value 3) to close the application when the window is closed -->
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
+
+  <!-- Synthetic properties related to form layout and generation -->
   <SyntheticProperties>
+    <!-- Determines the layout of the form (1 means the default layout) -->
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <!-- Determines whether the form should be centered automatically (false means no automatic centering) -->
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+
+  <!-- Auxiliary values for form settings -->
   <AuxValues>
+    <!-- Form settings to control features like internationalization, variables, and layout generation -->
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
@@ -20,45 +29,60 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
+  <!-- Form Layout (defines how the components are arranged in the window) -->
   <Layout>
     <DimensionLayout dim="0">
+      <!-- Main layout group for organizing components -->
       <Group type="103" groupAlignment="0" attributes="0">
+          <!-- Group for placing labels and text fields for USERNAME and PASSWORD -->
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <!-- Label for "LOGIN" -->
                   <Component id="jLabel1" min="-2" pref="165" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
+                      <!-- Label for "USERNAME" -->
                       <Component id="jLabel2" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <!-- Text field for entering the username -->
                       <Component id="USER" min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <!-- Label for "PASSWORD" -->
                       <Component id="jLabel3" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <!-- Password field for entering the password -->
                       <Component id="Password" min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <!-- Empty space for better layout spacing -->
               <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
+          <!-- Button for the login action -->
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <!-- Login button (jButton1) -->
               <Component id="jButton1" min="-2" pref="94" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
+
     <DimensionLayout dim="1">
+      <!-- Layout for the vertical arrangement of components -->
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <!-- Username text field placed alongside its label -->
                   <Component id="USER" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <!-- Password field placed alongside its label -->
                   <Component id="Password" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -69,7 +93,10 @@
       </Group>
     </DimensionLayout>
   </Layout>
+
+  <!-- SubComponents section, where actual Swing components are defined -->
   <SubComponents>
+    <!-- JLabel for "LOGIN" -->
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -79,6 +106,8 @@
         <Property name="text" type="java.lang.String" value="LOGIN"/>
       </Properties>
     </Component>
+
+    <!-- JLabel for "USERNAME" -->
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -87,6 +116,8 @@
         <Property name="text" type="java.lang.String" value="USERNAME"/>
       </Properties>
     </Component>
+
+    <!-- JLabel for "PASSWORD" -->
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -95,16 +126,24 @@
         <Property name="text" type="java.lang.String" value="PASSWORD"/>
       </Properties>
     </Component>
+
+    <!-- JTextField for the username input -->
     <Component class="javax.swing.JTextField" name="USER">
       <Events>
+        <!-- Action listener for USER text field (to handle user input) -->
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="USERActionPerformed"/>
       </Events>
     </Component>
+
+    <!-- JPasswordField for the password input -->
     <Component class="javax.swing.JPasswordField" name="Password">
       <Events>
+        <!-- Action listener for PASSWORD field -->
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PasswordActionPerformed"/>
       </Events>
     </Component>
+
+    <!-- JButton for the login action -->
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -113,6 +152,7 @@
         <Property name="text" type="java.lang.String" value="LOGIN"/>
       </Properties>
       <Events>
+        <!-- Action listener for the login button -->
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
