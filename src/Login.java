@@ -14,6 +14,7 @@ public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
+     * Purpose: Initializes the login window and its components.
      */
     public Login() {
         initComponents();  // Initialize the components (UI elements)
@@ -29,25 +30,25 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         // Create and initialize UI components (labels, text fields, button)
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        USER = new javax.swing.JTextField();
-        Password = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();  // Login title label
+        jLabel2 = new javax.swing.JLabel();  // Username label
+        jLabel3 = new javax.swing.JLabel();  // Password label
+        USER = new javax.swing.JTextField();  // Username input field
+        Password = new javax.swing.JPasswordField();  // Password input field
+        jButton1 = new javax.swing.JButton();  // Login button
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);  // Close the application when the window is closed
 
         // Set up the properties of the labels
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // Set font for the title label
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18));  // Set font for the title label
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);  // Center the text
-        jLabel1.setText("LOGIN");
+        jLabel1.setText("LOGIN");  // Set the text for the title label
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // Set font for the username label
-        jLabel2.setText("USERNAME");
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 12));  // Set font for the username label
+        jLabel2.setText("USERNAME");  // Set the text for the username label
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // Set font for the password label
-        jLabel3.setText("PASSWORD");
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 12));  // Set font for the password label
+        jLabel3.setText("PASSWORD");  // Set the text for the password label
 
         // Add action listeners for username and password fields (handling user input)
         USER.addActionListener(new java.awt.event.ActionListener() {
@@ -63,8 +64,8 @@ public class Login extends javax.swing.JFrame {
         });
 
         // Set up the login button
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // Set font for the login button
-        jButton1.setText("LOGIN");  // Set the button text
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 12));  // Set font for the login button
+        jButton1.setText("LOGIN");  // Set the button text to "LOGIN"
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);  // Call method when the login button is clicked
@@ -115,22 +116,43 @@ public class Login extends javax.swing.JFrame {
         pack();  // Adjust the size of the window to fit the components
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method handles the event when the user hits Enter after entering a username.
+     * It can be used to trigger additional actions (e.g., validation).
+     * 
+     * @param evt the event triggered by the user action
+     */
     private void USERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERActionPerformed
         // TODO add your handling code here:
         // Handle user input in the username field (optional)
     }//GEN-LAST:event_USERActionPerformed
 
+    /**
+     * This method handles the event when the user hits Enter after entering a password.
+     * It can be used to trigger additional actions (e.g., validation).
+     * 
+     * @param evt the event triggered by the user action
+     */
     private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
         // TODO add your handling code here:
         // Handle user input in the password field (optional)
     }//GEN-LAST:event_PasswordActionPerformed
 
+    /**
+     * This method handles the event when the login button is clicked.
+     * It can be used to perform the login authentication or validation.
+     * 
+     * @param evt the event triggered by the user clicking the login button
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Handle login button click here (perform authentication or validation)
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * The main method for running the login window.
+     * It sets up the look and feel and creates the login form.
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -174,4 +196,3 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;  // Password label
     // End of variables declaration//GEN-END:variables
 }
-
