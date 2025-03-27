@@ -6,34 +6,34 @@ import java.awt.event.ActionListener;
 public class Dashboard {
 
     // Arrays to hold admin data (name and role)
-    private String[] admins = new String[10];
-    private String[] adminRoles = new String[10];
+    private String[] admins = new String[10];  // Array to store admin names
+    private String[] adminRoles = new String[10];  // Array to store corresponding roles of admins
     
-    // GUI components
-    private JFrame frame;
-    private JPanel panel;
+    // GUI components for the dashboard interface
+    private JFrame frame;  // Main frame of the dashboard
+    private JPanel panel;  // Panel to hold the navigation buttons
     private JButton addAdminButton, removeAdminButton, manageAdminsButton, addBookButton, removeBookButton, loanBookButton, buyBookButton;
-    private JButton booksAvailableButton;
+    private JButton booksAvailableButton;  // Button to view available books
 
     public static void main(String[] args) {
         // Start the application by invoking the initialize method on the Event Dispatch Thread
-        SwingUtilities.invokeLater(() -> new Dashboard().initialize());
+        SwingUtilities.invokeLater(() -> new Dashboard().initialize());  // Launch the dashboard window
     }
 
     public void initialize() {
         // Create the main frame for the dashboard
         frame = new JFrame("Library Dashboard");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Exit application when closed
-        frame.setSize(1000, 600); // Set the size of the frame
-        frame.setLayout(new BorderLayout()); // Use BorderLayout for dividing the window
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Exit application when window is closed
+        frame.setSize(1000, 600);  // Set the size of the frame
+        frame.setLayout(new BorderLayout());  // Use BorderLayout for organizing layout
 
         // Create the navigation panel with a grid layout for buttons
         panel = new JPanel();
-        panel.setLayout(new GridLayout(8, 1, 10, 10)); // 8 buttons in a vertical grid
-        panel.setBackground(new Color(128, 0, 128)); // Set background color to purple
-        panel.setPreferredSize(new Dimension(200, 600)); // Set panel size
+        panel.setLayout(new GridLayout(8, 1, 10, 10));  // 8 buttons arranged vertically with 10px space
+        panel.setBackground(new Color(128, 0, 128));  // Set background color to purple
+        panel.setPreferredSize(new Dimension(200, 600));  // Set the preferred size of the panel
 
-        // Initialize the buttons for different actions
+        // Initialize buttons for various actions related to the library management
         addAdminButton = new JButton("Add Admin");
         removeAdminButton = new JButton("Remove Admin");
         manageAdminsButton = new JButton("Manage Admins");
@@ -43,7 +43,7 @@ public class Dashboard {
         buyBookButton = new JButton("Buy a Book");
         booksAvailableButton = new JButton("Books Available");
 
-        // Add the buttons to the panel
+        // Add buttons to the navigation panel
         panel.add(addAdminButton);
         panel.add(removeAdminButton);
         panel.add(manageAdminsButton);
@@ -53,13 +53,13 @@ public class Dashboard {
         panel.add(buyBookButton);
         panel.add(booksAvailableButton);
 
-        // Create the main content area where other information will be displayed
+        // Create the content panel where other content will be displayed
         JPanel contentPanel = new JPanel();
-        contentPanel.setBackground(Color.WHITE); // Set content background color to white
+        contentPanel.setBackground(Color.WHITE);  // Set content background color to white
 
-        // Add the navigation panel to the left and content panel to the center of the frame
-        frame.add(panel, BorderLayout.WEST);
-        frame.add(contentPanel, BorderLayout.CENTER);
+        // Add the navigation panel to the left and the content panel to the center of the frame
+        frame.add(panel, BorderLayout.WEST);  // Panel goes to the left side of the frame
+        frame.add(contentPanel, BorderLayout.CENTER);  // Content goes to the center
 
         // Set up action listeners for each button to handle respective actions
         addAdminButton.addActionListener(this::handleAddAdmin);
@@ -71,31 +71,30 @@ public class Dashboard {
         buyBookButton.addActionListener(this::handleBuyBook);
         booksAvailableButton.addActionListener(this::showBooksAvailableDialog);
 
-        // Make the frame visible
+        // Make the frame visible so that the user can interact with it
         frame.setVisible(true);
     }
 
     // Method to show the list of admins in a dialog
     private void showManageAdminsDialog(ActionEvent e) {
-        // Build a string to display all admins and their roles
         StringBuilder adminsList = new StringBuilder("Admin List:\n");
         for (int i = 0; i < admins.length; i++) {
             if (admins[i] != null) {
                 adminsList.append(admins[i]).append(" - ").append(adminRoles[i]).append("\n");
             }
         }
-        // Show the list in a message dialog
+        // Show the list of admins in a message dialog
         JOptionPane.showMessageDialog(frame, adminsList.toString(), "Manage Admins", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // Method to add a new admin
+    // Method to add a new admin to the system
     private void handleAddAdmin(ActionEvent e) {
         String adminName = JOptionPane.showInputDialog(frame, "Enter Admin Name:");
         if (adminName != null && !adminName.isEmpty()) {
             for (int i = 0; i < admins.length; i++) {
                 if (admins[i] == null) {
-                    admins[i] = adminName;
-                    adminRoles[i] = "Admin"; // Assign default role as "Admin"
+                    admins[i] = adminName;  // Add admin name to the array
+                    adminRoles[i] = "Admin";  // Assign the role "Admin" to the new admin
                     JOptionPane.showMessageDialog(frame, "Admin added successfully!", "Add Admin", JOptionPane.INFORMATION_MESSAGE);
                     return;
                 }
@@ -104,14 +103,14 @@ public class Dashboard {
         }
     }
 
-    // Method to remove an admin
+    // Method to remove an existing admin from the system
     private void handleRemoveAdmin(ActionEvent e) {
         String adminName = JOptionPane.showInputDialog(frame, "Enter Admin Name to Remove:");
         if (adminName != null && !adminName.isEmpty()) {
             for (int i = 0; i < admins.length; i++) {
                 if (adminName.equals(admins[i])) {
-                    admins[i] = null;
-                    adminRoles[i] = null;
+                    admins[i] = null;  // Remove the admin by setting the position to null
+                    adminRoles[i] = null;  // Remove the admin's role
                     JOptionPane.showMessageDialog(frame, "Admin removed successfully!", "Remove Admin", JOptionPane.INFORMATION_MESSAGE);
                     return;
                 }
@@ -120,7 +119,7 @@ public class Dashboard {
         }
     }
 
-    // Method to add a book to the library
+    // Method to add a book to the library collection
     private void handleAddBook(ActionEvent e) {
         String bookName = JOptionPane.showInputDialog(frame, "Enter Book Name:");
         String[] availableBooks = {
@@ -130,7 +129,7 @@ public class Dashboard {
         };
 
         if (bookName != null && !bookName.isEmpty()) {
-            // Check if the book is available in the list
+            // Check if the entered book name exists in the available books list
             for (String availableBook : availableBooks) {
                 if (bookName.equalsIgnoreCase(availableBook)) {
                     JOptionPane.showMessageDialog(frame, "Book added successfully!", "Add Book", JOptionPane.INFORMATION_MESSAGE);
@@ -141,7 +140,7 @@ public class Dashboard {
         }
     }
 
-    // Method to remove a book from the library
+    // Method to remove a book from the library collection
     private void handleRemoveBook(ActionEvent e) {
         String bookName = JOptionPane.showInputDialog(frame, "Enter Book Name to Remove:");
         String[] availableBooks = {
@@ -151,7 +150,7 @@ public class Dashboard {
         };
 
         if (bookName != null && !bookName.isEmpty()) {
-            // Check if the book exists in the list before removing it
+            // Check if the entered book name exists in the available books list
             for (String availableBook : availableBooks) {
                 if (bookName.equalsIgnoreCase(availableBook)) {
                     JOptionPane.showMessageDialog(frame, "Book removed successfully!", "Remove Book", JOptionPane.INFORMATION_MESSAGE);
@@ -217,7 +216,7 @@ public class Dashboard {
         }
     }
 
-    // Method to show the available books in the library
+    // Method to show the list of available books in the library
     private void showBooksAvailableDialog(ActionEvent e) {
         String[] availableBooks = {
             "The Great Gatsby", "Moby Dick", "To Kill a Mockingbird", 
@@ -225,7 +224,7 @@ public class Dashboard {
             "The Hobbit", "War and Peace", "Crime and Punishment", "Don Quixote"
         };
 
-        // Create a string listing all available books
+        // Build a string of all available books
         StringBuilder booksList = new StringBuilder("Available Books:\n");
         for (String book : availableBooks) {
             booksList.append(book).append("\n");
